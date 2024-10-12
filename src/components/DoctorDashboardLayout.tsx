@@ -21,7 +21,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 
 const sidebarItems = [
-  { icon: Grid, label: "Overview", active: true, link: "#" },
+  { icon: Grid, label: "Overview", active: true, link: "/dashboard" },
   { icon: Calendar, label: "Appointment", link: "/dashboard/appointments" },
   { icon: Users, label: "My Patients", link: "/dashboard/patients" },
   { icon: Clock, label: "Schedule Timings", link: "#" },
@@ -44,7 +44,7 @@ export default function DoctorDashboardLayout({
         <div className="p-4">
           <h1 className="text-2xl font-bold text-purple-600">HealthNode.</h1>
         </div>
-        <nav>
+        <nav className="space-y-4">
           {sidebarItems.map((item, index) => (
             <Link
               key={index}
