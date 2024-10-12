@@ -50,25 +50,29 @@ function LandingPageScreen() {
       id: 1,
       name: "Sammy White",
       descriptio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-      image: <img  />
+      image: <img  src='/ari.svg' height={50} width={50} alt='ari'/>,
+      case: "Cardiology Patient"
     },
     {
       id:2,
       name: "Sammy White",
       descriptio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-      image: <img  />
+      image: <img src='/cena.svg' height={50} width={50} alt='cena'  />,
+      case: "Cardiology Patient"
     },
     {
       id:3,
       name: "Sammy White",
       descriptio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-      image: <img  />
+      image: <img src='Jeri.svg' height={50} width={50} alt='Jeri'  />,
+      case: "Cardiology Patient"
     },
     {
       id:4,
       name: "Sammy White",
       descriptio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-      image: <img  />
+      image: <img src='white.svg' height={50} width={50} alt='white'  />,
+      case: "Cardiology Patient"
     }
   ]
   return (
@@ -276,13 +280,21 @@ function LandingPageScreen() {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p> 
         </div>
       </section>
-      <div>
+      <div className='grid grid-cols-1md:grid md:grid-cols-2 p-10 mt-5 w-4/5 mx-auto'>
         {
           Perk.map((perk) => (
-            <div key={perk.id}>
+            <div key={perk.id} className='mt-10 bg-white mx-5 p-5 rounded-xl shadow-xl'>
               <div>
                 <h1>{perk.descriptio}</h1>
               </div>
+              <div className='flex'>
+                <h1>{perk.image}</h1>
+              <div >
+              <h1>{perk.name}</h1>
+              <p>{perk.case}</p>
+              </div>
+              </div>
+
             </div>
           ))
         }
