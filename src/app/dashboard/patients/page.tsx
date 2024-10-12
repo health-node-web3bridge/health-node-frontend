@@ -1,13 +1,12 @@
-import Content from "@/components/Content";
 import DoctorDashboardLayout from "@/components/DoctorDashboardLayout";
-import React from "react";
+import PatientsContent from "@/components/patients/PatientsContent";
 
-const Dashboard = () => {
+function Patients() {
   return (
     <DoctorDashboardLayout>
-      <Content />
+      <PatientsContent />
     </DoctorDashboardLayout>
   );
-};
+}
 
-export default Dashboard;
+export default Patients;
