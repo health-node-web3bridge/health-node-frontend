@@ -45,7 +45,7 @@ function LandingPageScreen() {
       icon: <img src='van.svg' height={200} width={285} alt='van' />
     }
   ]
-  const perks = [
+  const Perk = [
     {
       id: 1,
       name: "Sammy White",
@@ -277,7 +277,15 @@ function LandingPageScreen() {
         </div>
       </section>
       <div>
-
+        {
+          Perk.map((perk) => (
+            <div key={perk.id}>
+              <div>
+                <h1>{perk.descriptio}</h1>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </>
   )
