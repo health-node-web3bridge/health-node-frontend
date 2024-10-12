@@ -225,7 +225,7 @@ function LandingPageScreen() {
                 </div>
         </div>
       </section>
-      <section className='w-4/5 mx-auto'>
+      <section className='w-4/5 mx-auto mb-20'>
       <h1 className=" font-bold bg-[rgba(0,191,165,1)] md:flex md:justify-center mt-10 bg-clip-text text-transparent">Why Doctor Michael Anderson?</h1> 
         <div className='mt-10'>
           <div>
@@ -239,7 +239,7 @@ function LandingPageScreen() {
           </div>
           </div>
         </div>
-        <section className='grid grid-cols-1 w-3/4 items-center lg:grid-cols-3 m-auto gap-5'>
+        <section className='grid grid-cols-1 w-3/4 items-center lg:grid-cols-3 m-auto gap-5 mt-10'>
 
         <div className='flex bg-[rgb(143,62,151)] col-span-1 bg-opacity-100 p-3 rounded-lg space-y-2 items-center'>
           <div className='mr-3'>
@@ -274,24 +274,23 @@ function LandingPageScreen() {
 
       </section>
       </section>
-      <section>
+      <section className='bg-[rgba(242,247,255,1)] -mt-5'>
         <div>
-        <h1 className='bg-[rgba(3,20,50,1)] bg-clip-text md:flex md:justify-center text-transparent flex  text-2xl font-semibold mt-5'>What our great customers say about Dr. Matthew Anderson</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p> 
+        <h1 className='bg-[rgba(3,20,50,1)] bg-clip-text md:flex md:justify-center text-transparent flex  text-2xl font-semibold p-10'>What our great customers say about Dr. Matthew Anderson</h1>
+        <p className='flex justify-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p> 
         </div>
-      </section>
-      <div className='grid grid-cols-1md:grid md:grid-cols-2 p-10 mt-5 w-4/5 mx-auto'>
+        <div className='grid grid-cols-1md:grid md:grid-cols-2 p-10 mt-5 w-4/5 mx-auto'>
         {
           Perk.map((perk) => (
             <div key={perk.id} className='mt-10 bg-white mx-5 p-5 rounded-xl shadow-xl'>
               <div>
-                <h1>{perk.descriptio}</h1>
+                <h1 className='p-5 text-gray-700'>{perk.descriptio}</h1>
               </div>
               <div className='flex'>
                 <h1>{perk.image}</h1>
               <div >
-              <h1>{perk.name}</h1>
-              <p>{perk.case}</p>
+              <h1 className='bg-[rgba(0,191,165,1)] bg-clip-text text-transparent '>{perk.name}</h1>
+              <p className='text-gray-700'>{perk.case}</p>
               </div>
               </div>
 
@@ -299,6 +298,9 @@ function LandingPageScreen() {
           ))
         }
       </div>
+      </section>
+
+      
     </>
   )
 }
