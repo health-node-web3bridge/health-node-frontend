@@ -13,15 +13,17 @@ import {
   Mail,
   FileText,
   Settings,
+  Menu,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
 
 const sidebarItems = [
   { icon: Grid, label: "Overview", active: true, link: "#" },
   { icon: Calendar, label: "Appointment", link: "/dashboard/appointments" },
-  { icon: Users, label: "My Patients", link: "#" },
+  { icon: Users, label: "My Patients", link: "/dashboard/patients" },
   { icon: Clock, label: "Schedule Timings", link: "#" },
   { icon: CreditCard, label: "Payments", link: "#" },
   { icon: Mail, label: "Message", link: "#" },
@@ -47,8 +49,10 @@ export default function DoctorDashboardLayout({
             <Link
               key={index}
               href={item.link}
-              className={`flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 w-11/12 mx-auto rounded-sm ${
-                item.link === pathname ? "bg-black text-white" : ""
+              className={`flex items-center px-4 py-2 text-gray-700 w-11/12 mx-auto rounded-sm ${
+                item.link === pathname
+                  ? "bg-black text-white"
+                  : "hover:bg-gray-100"
               }`}
             >
               <item.icon
@@ -88,7 +92,7 @@ export default function DoctorDashboardLayout({
                   </div>
                 </div>
               </div>
-              <div className="ml-4 flex items-center md:ml-6">
+              <div className="hidden ml-4 md:flex items-center md:ml-6">
                 <button className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                   <HelpCircle className="h-6 w-6" />
                 </button>
@@ -113,6 +117,9 @@ export default function DoctorDashboardLayout({
                   </div>
                 </div>
               </div>
+              <Button className="!bg-neutral-100">
+                <Menu color="#000" />
+              </Button>
             </div>
           </div>
         </header>
