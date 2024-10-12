@@ -117,7 +117,7 @@ export default function DoctorDashboardLayout({
                   </div>
                 </div>
               </div>
-              <Button className="!bg-neutral-100">
+              <Button className="!bg-neutral-100 md:hidden">
                 <Menu color="#000" />
               </Button>
             </div>
