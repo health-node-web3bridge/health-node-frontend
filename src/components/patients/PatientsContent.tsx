@@ -5,10 +5,10 @@ function PatientsContent() {
   const { patients } = usePatients();
   return (
     <div className="bg-white p-6 rounded-lg">
-      <p className="text-sm font-bold font-geistMono">
+      {/* <p className="text-xs font-bold font-geistMono">
         Hi, <b>Dr Stephen</b>
-      </p>
-      <div className="mt-4 flex items-center justify-between">
+      </p> */}
+      <div className="flex items-center justify-between">
         <p className="">My Patients</p>
         <Button variant="link">View All</Button>
       </div>
