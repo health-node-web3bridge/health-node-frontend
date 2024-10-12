@@ -26,7 +26,7 @@ function AppointmentContent() {
           {tabs.map((item, index) => (
             <button
               key={index}
-              className={`text-base transition-color duration-300 ease-in  ${
+              className={`text-sm md:text-base transition-color duration-300 ease-in  ${
                 tab === item ? "text-purple-600 font-bold " : ""
               }`}
               onClick={() => setTab(item)}

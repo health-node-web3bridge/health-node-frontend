@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const useAppointment = () => {
   const [tab, setTab] = useState("All");
   const tableHeader = ["Name", "Gender", "Reason", "Status"];
-  const tabs = ["All", "Confirmed", "Pending Confirmation", "Declined"];
+  const tabs = ["All", "Confirmed", "Pending", "Declined"];
   const invoices = [
     {
       invoice: "INV001",
