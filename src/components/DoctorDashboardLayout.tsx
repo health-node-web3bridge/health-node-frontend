@@ -47,11 +47,15 @@ export default function DoctorDashboardLayout({
             <Link
               key={index}
               href={item.link}
-              className={`flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 w-11/12 mx-auto rounded-sm ${
-                item.link === pathname ? "bg-gray-200" : ""
+              className={`flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 w-11/12 mx-auto rounded-sm ${
+                item.link === pathname ? "bg-black text-white" : ""
               }`}
             >
-              <item.icon className="mr-3 h-5 w-5" />
+              <item.icon
+                className={`mr-3 h-5 w-5 ${
+                  item.link === pathname && "text-white"
+                }`}
+              />
               {item.label}
             </Link>
           ))}

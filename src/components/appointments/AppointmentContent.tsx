@@ -36,7 +36,7 @@ function AppointmentContent() {
           ))}
         </div>
         <div className="mt-5 ">
-          <Table>
+          <Table className="">
             <TableHeader>
               <TableRow className="">
                 {tableHeader.map((item, index) => (
