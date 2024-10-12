@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		backgroundImage: {
+			'custom-gradient': 'linear-gradient(96.14deg, #3A8EF6 -10.84%, #6F3AFA 196.74%)',
+			'custom-gradient-text-': 'linear-gradient(96.14deg, #3A8EF6 -10.84%, #6F3AFA 196.74%)',
+			'custom-gradient-button': 'linear-gradient(96.14deg, #3A8EF6 -10.84%, #8F3E97 75.31%)', // New gradient for button
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -55,7 +60,8 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		 
   	}
   },
   plugins: [require("tailwindcss-animate")],
