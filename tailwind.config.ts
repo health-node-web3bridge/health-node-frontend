@@ -61,6 +61,7 @@ const config: Config = {
         geistSans: ["var(--font-geist-sans)"],
       },
     },
+
   },
   plugins: [require("tailwindcss-animate")],
 };
