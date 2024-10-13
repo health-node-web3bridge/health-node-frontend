@@ -1,13 +1,13 @@
-import Content from '@/components/Content'
-import DoctorDashboardLayout from '@/components/DoctorDashboardLayout'
-import React from 'react'
+import Content from "@/components/Content";
+import DoctorDashboardLayout from "@/components/DoctorDashboardLayout";
+import React from "react";
 
 const Dashboard = () => {
   return (
     <DoctorDashboardLayout>
-        <Content />
+      <Content />
     </DoctorDashboardLayout>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
