@@ -1,25 +1,26 @@
-import { liskSepolia } from "wagmi/chains";
-import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
-import { deserialize, serialize } from "wagmi";
+// config/index.tsx
 
-export const rainbowConfig = getDefaultConfig({
-  appName: "HealthNode",
-  //   @ts-ignore
-  projectId: process.env.NEXT_PUBLIC_RAINBOW_PROJECT_ID,
-  chains: [liskSepolia],
-  ssr: true, // If your dApp uses server side rendering (SSR)
+import { cookieStorage, createStorage } from "@wagmi/core";
+import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
+import { liskSepolia } from "@reown/appkit/networks";
+
+// Get projectId from https://cloud.reown.com
+export const projectId = "153911e6992ff7988874a9dc6ce9f840";
+
+if (!projectId) {
+  throw new Error("Project ID is not defined");
+}
+
+export const networks = [liskSepolia];
+
+//Set up the Wagmi Adapter (Config)
+export const wagmiAdapter = new WagmiAdapter({
+  storage: createStorage({
+    storage: cookieStorage,
+  }),
+  ssr: true,
+  projectId,
+  networks,
 });
 
-export const persister = createSyncStoragePersister({
-  serialize,
-  storage: window.localStorage,
-  deserialize,
-});
-
-// export const config = createConfig({
-//   chains: [liskSepolia],
-//   transports: {
-//     [liskSepolia.id]: http(),
-//   },
-// });
+export const config = wagmiAdapter.wagmiConfig;

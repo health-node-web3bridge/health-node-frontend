@@ -48,14 +48,17 @@ export const CustomButtom = () => {
                   <button
                     onClick={openChainModal}
                     type="button"
-                    className="bg-[#8F3E97] w-full h-12 text-white mt-2"
+                    className="bg-[#8F3E97] w-full h-12 text-white mt-2 rounded-lg"
                   >
                     Wrong network
                   </button>
                 );
               }
               return (
-                <div style={{ display: "flex", gap: 12 }}>
+                <div
+                  style={{ display: "flex", gap: 12 }}
+                  className="bg-[#8F3E97] w-full h-12 text-white mt-2 gap-4 flex items-center justify-center rounded-lg"
+                >
                   <button
                     onClick={openChainModal}
                     style={{ display: "flex", alignItems: "center" }}
@@ -69,7 +72,7 @@ export const CustomButtom = () => {
                           height: 12,
                           borderRadius: 999,
                           overflow: "hidden",
-                          marginRight: 4,
+                          // marginRight: 4,
                         }}
                       >
                         {chain.iconUrl && (
@@ -83,11 +86,13 @@ export const CustomButtom = () => {
                     )}
                     {chain.name}
                   </button>
+                  <p>-</p>
                   <button onClick={openAccountModal} type="button">
-                    {account.displayName}
+                    {/* {account.displayName}
                     {account.displayBalance
                       ? ` (${account.displayBalance})`
-                      : ""}
+                      : ""} */}
+                    Connected
                   </button>
                 </div>
               );

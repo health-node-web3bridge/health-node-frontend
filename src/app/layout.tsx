@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Provider from "@/lib/Provider";
+import { headers } from "next/headers"; // added
 import "@rainbow-me/rainbowkit/styles.css";
 
 const geistSans = localFont({
@@ -25,6 +26,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookies = headers().get("cookie");
   return (
     <html lang="en">
       <head>
@@ -34,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Provider>{children}</Provider>
+        <Provider cookies={cookies}>{children}</Provider>
       </body>
     </html>
   );
