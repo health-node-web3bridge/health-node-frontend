@@ -1,4 +1,3 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Button } from "../ui/button";
 import { CustomButtom } from "../shared/Connect";
 
@@ -10,7 +9,7 @@ function LoginScreen() {
   ];
   return (
     <div className="flex flex-col justify-center w-full mx-auto">
-      <CustomButtom />
+      {window && <CustomButtom />}
       {/* <Button className="bg-[#8F3E97] w-full h-12 text-white mt-2">
         Connect wallet
       </Button> */}
