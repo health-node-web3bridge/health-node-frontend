@@ -1,3 +1,4 @@
+import IsConnect from "@/components/shared/IsConnect";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
@@ -33,4 +34,4 @@ function RegistrationLayout({
   );
 }
 
-export default RegistrationLayout;
+export default IsConnect(RegistrationLayout);

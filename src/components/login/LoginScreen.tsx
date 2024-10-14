@@ -1,13 +1,18 @@
 "use client";
 import { Button } from "../ui/button";
 import { CustomButtom } from "../shared/Connect";
-import { WagmiProvider, useAccount, useDisconnect } from "wagmi";
+// import { WagmiProvider, useAccount, useDisconnect } from "wagmi";
 import { useRouter } from "next/navigation";
+import { ConnectButton } from "thirdweb/react";
+import { client } from "@/lib/thirdwebConfig";
+import { useActiveAccount, useWalletBalance } from "thirdweb/react";
 
 function LoginScreen() {
-  const { isConnected } = useAccount();
+  // const { isConnected } = useAccount();
+  const account = useActiveAccount();
   const router = useRouter();
-  const { disconnect } = useDisconnect();
+  // const { disconnect } = useDisconnect();
+
   const btn = [
     {
       title: "Patient",
@@ -27,7 +32,13 @@ function LoginScreen() {
   ];
   return (
     <div className="flex flex-col justify-center w-full mx-auto">
-      {!isConnected && <CustomButtom />}
+      <ConnectButton
+        client={client}
+        connectModal={{
+          showThirdwebBranding: false,
+        }}
+      />
+      {/* {!isConnected && <CustomButtom />}
       {isConnected && (
         <Button
           onClick={() => disconnect()}
@@ -35,9 +46,9 @@ function LoginScreen() {
         >
           Disconnect wallet
         </Button>
-      )}
+      )} */}
       {/* <ConnectButton /> */}
-      {isConnected && (
+      {account !== undefined && (
         <>
           <div className="flex items-center justify-center mt-5 gap-4">
             <div className="border h-px w-4/12"></div>

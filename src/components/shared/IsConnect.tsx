@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect } from "react";
-import { useAccount } from "wagmi";
 import { redirect } from "next/navigation";
+import { useActiveAccount } from "thirdweb/react";
 
 export default function IsConnect(Component: any) {
   return function withConnect(props: any) {
-    const { isConnected } = useAccount();
+    const account = useActiveAccount();
 
     useEffect(() => {
-      if (!isConnected) {
-        redirect("/");
+      if (account === undefined) {
+        redirect("/auth");
       }
     }, []);
-    if (!isConnected) return null;
+    if (account === undefined) return null;
 
     return <Component {...props} />;
   };
