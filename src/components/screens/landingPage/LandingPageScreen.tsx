@@ -123,7 +123,7 @@ function LandingPageScreen() {
             <IoMdCheckmarkCircleOutline className='text-white h-[38px] w-[38px]' />       
              </div>
           <div>
-            <h1 className='text-white font-bold text-[18px]'>24 hours Service</h1>
+            <h1 className='text-white font-bold text-[18px]'>8 years of experience</h1>
             <p className='text-white text-sm'>Lorem ipsum dolor sit amet consectetur.</p>
           </div>
         </div>
@@ -134,7 +134,7 @@ function LandingPageScreen() {
             <CirclePlus className='h-[38px] w-[38px] text-white'/>
           </div>
           <div>
-            <h1 className='text-white font-bold text-[18px]'>24 hours Service</h1>
+            <h1 className='text-white font-bold text-[18px]'>High Quality Care</h1>
             <p className='text-white text-sm'>Lorem ipsum dolor sit amet consectetur.</p>
           </div>
         </div>
@@ -246,8 +246,7 @@ function LandingPageScreen() {
             <FaRegClock className='text-white h-[38px] w-[38px]' />
           </div>
           <div>
-            <h1 className='text-white font-bold text-[18px]'>24 hours Service</h1>
-            <p className='text-white text-sm'>Lorem ipsum dolor sit amet consectetur.</p>
+            <h1 className='text-white font-bold'>+15 years of experience</h1>
           </div>
         </div>
 
@@ -256,8 +255,7 @@ function LandingPageScreen() {
             <IoMdCheckmarkCircleOutline className='text-white h-[38px] w-[38px]' />       
              </div>
           <div>
-            <h1>24 hours Service</h1>
-            <p className='text-white text-sm'>Lorem ipsum dolor sit amet consectetur.</p>
+            <h1 className='text-white font-bold'>High Quality Care</h1>
           </div>
         </div>
 
@@ -267,8 +265,7 @@ function LandingPageScreen() {
             <CirclePlus className='h-[38px] w-[38px] text-white'/>
           </div>
           <div>
-            <h1>24 hours Service</h1>
-            <p className='text-white text-sm'>Lorem ipsum dolor sit amet consectetur.</p>
+            <h1 className='text-white font-bold'>Urgent 24 hours Service</h1>
           </div>
         </div>
 
