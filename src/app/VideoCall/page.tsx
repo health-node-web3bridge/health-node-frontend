@@ -66,34 +66,53 @@ const Dashboard: React.FC = () => {
             //   <h3 className="text-lg text-black font-semibold">{selectedItem.name}</h3>
             //   <p className="mt-2 text-black">{selectedItem.description}</p>
             // </div>
-            <>            <div>
+            <>            
+            <div>
               <img src='/vid.svg' height={450} width={620} alt='' />
             </div>
-            <div>
-                <div>
-                  <div className='flex gap-2'>
+            <div className=''>
+                <div className='flex justify-between'>
+                <div className=''>
+                  <div className='flex gap-2 mt-5'>
                     <img src='/lab.svg' height={34.66} width={34.66} alt='lab' className='bg-[#6A3CB9] rounded-full' />
                     <div className='items-center'>
                       <h1 className='text-sm font-bold'>Lab Test</h1>
                       <p className='text-xs text-gray-700'>2 scheduled tests</p>
                     </div>
                   </div>
-                  <div className='flex justify-between'>
-                    <div>
+                  <div className='flex justify-between mt-5'>
+                    <div className=''>
                     <h1 className='text-xs'>Full Blood</h1>
                     <h1 className='text-xl font-bold'>Test</h1>
                     </div>
                     <div><img src='Mail.svg' height={30.33} width={21.66} alt='mail'/></div>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between gap-5 mt-5'>
                     <div>
                     <h1 className='text-xs'>NCCT Brain</h1>
                     <h1 className='text-xl font-bold'>Test</h1>
                     </div>
                     <div><img src='Mail.svg' height={30.33} width={21.66} alt='mail'/></div>
                     </div>
-                  <div></div>
-                  <div></div>
+
+                    </div>
+
+                    <div>
+                  <div className='flex flex-col mt-5'>
+                    <div>
+                      <img src='Mail.svg' height={30.33} width={21.66} alt='mail'/>
+                    </div>
+                    </div>
+                    <div className='flex justify-between gap-5'>
+                    <div>
+                    <h1 className='text-xs'>Reports</h1>
+                    <h1 className='text-xs text-gray-700'>View all 3</h1>
+                    </div>
+                    </div>
+                  <div>2</div>
+                  </div>
+
+
                 </div>
                 <div>
 

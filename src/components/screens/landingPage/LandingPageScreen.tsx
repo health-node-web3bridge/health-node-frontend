@@ -80,11 +80,11 @@ function LandingPageScreen() {
       <section className="grid grid-cols-1 lg:grid-cols-2  justify-center bg-[rgba(242,247,255,1)] h-[650px]">
         <div className='flex justify-center w-11/12 m-auto items-center'>
           <div className='md:justify-start w-11/12 m-auto '>
-            <h1 className=" font-bold bg-[rgba(0,191,165,1)] flex justify-center md:justify-start bg-clip-text text-transparent">Dr. Matthew Anderson</h1>
+            <h1 className="font-bold bg-[rgba(0,191,165,1)] pl-16 flex justify-center md:justify-start bg-clip-text text-transparent">Dr. Matthew Anderson</h1>
             <h1 className='bg-[rgba(3,20,50,1)] bg-clip-text md:flex md:justify-center text-transparent flex  text-3xl md:text-[48px] font-extrabold leading-tight'>A dedicated doctor <br /> you can trust</h1>
-            <p className='my-10 flex items-center'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. ilicit depotifo amre</p>
+            <p className='my-10 flex items-center pl-16'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. ilicit depotifo amre</p>
 
-            <div className='flex justify-center md:justify-start '>
+            <div className='flex justify-center md:justify-start pl-16'>
               <button className="bg-custom-gradient-button flex gap-3 text-white font-bold md:py-4 md:px-6 py-1 px-3 rounded-full shadow-md hover:opacity-90 transition-opacity">
                 <Image
                   src='/Vec.svg'
