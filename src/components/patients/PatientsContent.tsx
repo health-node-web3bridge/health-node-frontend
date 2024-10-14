@@ -16,7 +16,7 @@ function PatientsContent() {
         {patients.map((patient, index) => (
           <div
             key={index}
-            className="!border rounded-md  py-4 flex  flex-col justify-center items-center gap-4 hover:border-[#9716CA] transition-colors duration-300 ease-in"
+            className="!border rounded-2xl  py-4 flex bg-white shadow-md  flex-col justify-center items-center hover:border-[#9716CA] transition-colors duration-300 ease-in"
           >
             <div className="h-[50px] w-[50px] md:h-[100px] md:w-[100px] rounded-full bg-gray-300" />
             <div>
@@ -26,10 +26,10 @@ function PatientsContent() {
               <p className="text-sm text-gray-500 text-center lg:text-xl ">
                 {patient.gender}
               </p>
-              <div className="mt-4 md:mt-8 w-full flex items-center justify-center">
+              <div className="mt-4 md:mt-8 !w-full flex items-center justify-center">
                 <Button
                   variant="outline"
-                  className="hover:!bg-gradient-to-tr from-[#1E78F0] to-[#9716CA] transition-colors duration-300 ease-in group"
+                  className="hover:!bg-gradient-to-tr from-[#1E78F0] to-[#9716CA] transition-colors duration-300 ease-in group w-full"
                 >
                   <p className="group-hover:text-white">View Details</p>
                 </Button>
