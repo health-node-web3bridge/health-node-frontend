@@ -276,6 +276,7 @@ function LandingPageScreen() {
         <h1 className='bg-[rgba(3,20,50,1)] bg-clip-text md:flex md:justify-center text-transparent flex  text-2xl font-semibold p-10'>What our great customers say about Dr. Matthew Anderson</h1>
         <p className='flex justify-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p> 
         </div>
+        <Slide direction="up" damping={0.3} triggerOnce cascade>
         <div className='grid grid-cols-1md:grid md:grid-cols-2 p-10 mt-5 w-4/5 mx-auto'>
         {
           Perk.map((perk) => (
@@ -295,6 +296,8 @@ function LandingPageScreen() {
           ))
         }
       </div>
+      </Slide>
+
       </section>
 
       
