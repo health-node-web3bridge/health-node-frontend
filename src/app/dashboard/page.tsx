@@ -1,3 +1,4 @@
+"use client";
 import Content from "@/components/Content";
 import DoctorDashboardLayout from "@/components/DoctorDashboardLayout";
 import React from "react";
