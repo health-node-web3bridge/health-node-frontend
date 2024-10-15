@@ -1,10 +1,10 @@
 "use client";
+import { usePRouter } from "@/lib/Provider2";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 function Header() {
-  const router = useRouter();
+  const router = usePRouter();
   return (
     <nav className="flex justify-between space-x-10 items-center mx-auto md:p-10 p-5 bg-[rgba(242,247,255,1)] w-full">
       <div>

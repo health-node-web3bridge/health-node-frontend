@@ -44,16 +44,16 @@ export default function PatientDashboardLayout({
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md hidden md:block">
+      <aside className="w-64 bg-[#FAFAFA] shadow-md hidden md:block">
         <div className="p-4">
           <Image src="/image/logo.svg" width={200} height={200} alt="logo" />
         </div>
-        <nav className="space-y-4">
+        <nav className="space-y-4 mt-10">
           {sidebarItems.map((item, index) => (
             <Link
               key={index}
               href={item.link}
-              className={`flex items-center px-4 py-2 text-gray-700 w-11/12 mx-auto rounded-sm ${
+              className={`flex items-center px-4 py-2 text-gray-700 w-11/12 mx-auto rounded-md ${
                 item.link === pathname
                   ? "bg-black text-white"
                   : "hover:bg-gray-100"
@@ -129,7 +129,7 @@ export default function PatientDashboardLayout({
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {children}
           </div>
