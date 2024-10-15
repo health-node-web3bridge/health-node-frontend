@@ -2,15 +2,16 @@
 import { Button } from "../ui/button";
 import { CustomButtom } from "../shared/Connect";
 // import { WagmiProvider, useAccount, useDisconnect } from "wagmi";
-import { useRouter } from "next/navigation";
+
 import { ConnectButton } from "thirdweb/react";
 import { client } from "@/lib/thirdwebConfig";
 import { useActiveAccount, useWalletBalance } from "thirdweb/react";
+import { usePRouter } from "@/lib/Provider2";
 
 function LoginScreen() {
   // const { isConnected } = useAccount();
   const account = useActiveAccount();
-  const router = useRouter();
+  const router = usePRouter();
   // const { disconnect } = useDisconnect();
 
   const btn = [

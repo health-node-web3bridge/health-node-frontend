@@ -53,7 +53,7 @@ export default function PatientDashboardLayout({
             <Link
               key={index}
               href={item.link}
-              className={`flex items-center px-4 py-2 text-gray-700 w-11/12 mx-auto rounded-sm ${
+              className={`flex items-center px-4 py-2 text-gray-700 w-11/12 mx-auto rounded-md ${
                 item.link === pathname
                   ? "bg-black text-white"
                   : "hover:bg-gray-100"
