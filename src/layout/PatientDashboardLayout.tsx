@@ -14,23 +14,27 @@ import {
   FileText,
   Settings,
   Menu,
+  Hospital,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { usePathname } from "next/navigation";
-import { Button } from "./ui/button";
+import { Button } from "../components/ui/button";
+import Image from "next/image";
 
 const sidebarItems = [
-  { icon: Grid, label: "Overview", active: true, link: "/dashboard" },
-  { icon: Calendar, label: "Appointment", link: "/dashboard/appointments" },
-  { icon: Users, label: "My Patients", link: "/dashboard/patients" },
-  { icon: Clock, label: "Schedule Timings", link: "#" },
-  { icon: CreditCard, label: "Payments", link: "#" },
-  { icon: Mail, label: "Message", link: "#" },
-  { icon: Settings, label: "Settings", link: "#" },
+  {
+    icon: Grid,
+    label: "Overview",
+    active: true,
+    link: "/p/dashboard/overview",
+  },
+  { icon: Hospital, label: "Doctors", link: "/p/dashboard/doctors" },
+  { icon: Clock, label: "Consultation", link: "/p/dashboard/consultation" },
+  { icon: CreditCard, label: "Payments", link: "/p/dashboard/payments" },
 ];
 
-export default function DoctorDashboardLayout({
+export default function PatientDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -42,7 +46,7 @@ export default function DoctorDashboardLayout({
       {/* Sidebar */}
       <aside className="w-64 bg-white shadow-md hidden md:block">
         <div className="p-4">
-          <h1 className="text-2xl font-bold text-purple-600">HealthNode.</h1>
+          <Image src="/image/logo.svg" width={200} height={200} alt="logo" />
         </div>
         <nav className="space-y-4">
           {sidebarItems.map((item, index) => (
