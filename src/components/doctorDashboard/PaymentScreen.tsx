@@ -1,18 +1,8 @@
-import PatientDashboardLayout from "@/layout/PatientDashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+
 import { Calendar as CalendarIcon, Users } from "lucide-react";
 import PaymentTable from "./PaymentTable";
+import DoctorDashboardLayout from "../DoctorDashboardLayout";
 
 const dashCards = [
   {
@@ -43,7 +33,7 @@ const dashCards = [
 
 function PaymentScreen() {
   return (
-    <PatientDashboardLayout>
+    <DoctorDashboardLayout>
       <div className="space-y-6">
         <div>
           <h2 className="text-2xl font-bold">Welcome, Dike</h2>
@@ -82,7 +72,7 @@ function PaymentScreen() {
           </Card>
         </div>
       </div>
-    </PatientDashboardLayout>
+    </DoctorDashboardLayout>
   );
 }
 
