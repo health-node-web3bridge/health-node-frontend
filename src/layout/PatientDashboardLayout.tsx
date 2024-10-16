@@ -115,9 +115,9 @@ export default function PatientDashboardLayout({
                     <span className="ml-2 text-sm font-medium text-gray-700">
                       Stephen Conley
                     </span>
-                    <span className="ml-1 text-xs text-gray-500">
+                    {/* <span className="ml-1 text-xs text-gray-500">
                       Cardiologist
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>
