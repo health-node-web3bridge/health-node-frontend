@@ -19,6 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const sidebarItems = [
   { icon: Grid, label: "Overview", active: true, link: "/dashboard" },
@@ -40,11 +41,11 @@ export default function DoctorDashboardLayout({
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md hidden md:block">
+      <aside className="w-64 bg-gray-100 shadow-md hidden md:block">
         <div className="p-4">
-          <h1 className="text-2xl font-bold text-purple-600">HealthNode.</h1>
+          <Image src="/image/logo.svg" width={200} height={200} alt="logo" />
         </div>
-        <nav className="space-y-4">
+        <nav className="space-y-4 mt-10">
           {sidebarItems.map((item, index) => (
             <Link
               key={index}
@@ -125,7 +126,7 @@ export default function DoctorDashboardLayout({
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {children}
           </div>

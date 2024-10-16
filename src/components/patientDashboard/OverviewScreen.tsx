@@ -19,7 +19,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-const appointmentRequests = [
+export const appointmentRequests = [
   {
     name: "Dr. Bogdan Krivenchenko",
     age: 45,
