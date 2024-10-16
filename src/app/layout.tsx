@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Provider from "@/lib/Provider";
 import { headers } from "next/headers"; // added
 import "@rainbow-me/rainbowkit/styles.css";
 import Provider2 from "@/lib/Provider2";
@@ -38,7 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* <Provider cookies={cookies}>{children}</Provider> */}
-        <Provider2>{children}</Provider2>
+        <Provider2 cookies={cookies}>{children}</Provider2>
       </body>
     </html>
   );
