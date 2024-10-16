@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { CustomButtom } from "../shared/Connect";
 // import { WagmiProvider, useAccount, useDisconnect } from "wagmi";
-import { useRouter } from "next/navigation";
+
 import { ConnectButton } from "thirdweb/react";
 import { client } from "@/lib/thirdwebConfig";
 import { useActiveAccount, useWalletBalance } from "thirdweb/react";
@@ -11,11 +11,12 @@ import { patientContract } from "@/utils/contract";
 import { useWriteContract } from "wagmi";
 import { ethers } from 'ethers';
 import useReadPatientContract from "@/hooks/useReadPatientData";
+import { usePRouter } from "@/lib/Provider2";
 
 function LoginScreen() {
   // const { isConnected } = useAccount();
   const account = useActiveAccount();
-  const router = useRouter();
+  const router = usePRouter();
   // const { disconnect } = useDisconnect();
   const [isNewUser, setIsNewUser] = useState(false);
 
