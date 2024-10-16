@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -22,34 +21,71 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import Image from "next/image";
 import RegistrationLayout from "@/layout/RegistrationLayout";
+import { useWriteContract } from "wagmi";
+import { patientContract } from "@/utils/contract";
+import { usePRouter } from "@/lib/Provider2";
+import { abi } from "@/abi/abi";
+import { parseError } from "@/lib/parseError";
+import { toast } from "sonner";
 
 const formSchema = z.object({
-  firstName: z.string().min(2, {
+  name: z.string().min(2, {
     message: EMPTY_FIELD,
   }),
-  lastName: z.string().min(2, {
-    message: EMPTY_FIELD,
-  }),
+  email: z
+    .string()
+    .min(2, {
+      message: EMPTY_FIELD,
+    })
+    .email({ message: "Invalid email address" }),
   gender: z.string().min(2, {
+    message: EMPTY_FIELD,
+  }),
+  age: z.string().min(1, {
     message: EMPTY_FIELD,
   }),
 });
 
 function RegisterPatientScreen() {
+  const router = usePRouter();
+  const {
+    data: hash,
+    writeContractAsync,
+    isPending,
+    // isSuccess,
+    // error,
+  } = useWriteContract();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      name: "",
+      email: "",
       gender: "",
+      age: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    writeContractAsync({
+      address: patientContract.address as `0x${string}`,
+      abi,
+      functionName: "registerPatient",
+      args: [values.name, values.email, values.gender, Number(values.age)],
+    })
+      .then((res) => {
+        router.prefetch("/p/dashboard/overview");
+      })
+      .catch((err) => {
+        const { message, id } = parseError(err);
+        toast.error(message, {
+          id,
+        });
+      });
   }
+
   return (
     <RegistrationLayout title="Patient's Registration">
       <Form {...form}>
@@ -59,10 +95,10 @@ function RegisterPatientScreen() {
         >
           <FormField
             control={form.control}
-            name="firstName"
+            name="name"
             render={({ field }) => (
               <FormItem className="col-span-1">
-                <FormLabel className="formLabel">First Name</FormLabel>
+                <FormLabel className="formLabel">Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Enter first name" {...field} />
                 </FormControl>
@@ -72,12 +108,12 @@ function RegisterPatientScreen() {
           />
           <FormField
             control={form.control}
-            name="lastName"
+            name="email"
             render={({ field }) => (
               <FormItem className="col-span-1">
-                <FormLabel className="formLabel">Last Name</FormLabel>
+                <FormLabel className="formLabel">Email Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter last name" {...field} />
+                  <Input placeholder="Enter email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -112,11 +148,26 @@ function RegisterPatientScreen() {
             )}
           />
 
+          <FormField
+            control={form.control}
+            name="age"
+            render={({ field }) => (
+              <FormItem className="col-span-1">
+                <FormLabel className="formLabel">Age</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter age" {...field} type="tel" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
           <Button
             type="submit"
             className="w-full !mt-16 bg-custom-gradient-button text-white"
+            disabled={isPending}
           >
-            Submit
+            {isPending ? "Submitting..." : "Submit"}
           </Button>
         </form>
       </Form>

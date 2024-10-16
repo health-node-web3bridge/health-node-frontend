@@ -22,11 +22,11 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 
 const sidebarItems = [
-  { icon: Grid, label: "Overview", active: true, link: "/dashboard" },
-  { icon: Calendar, label: "Appointment", link: "/dashboard/appointments" },
-  { icon: Users, label: "My Patients", link: "/dashboard/patients" },
+  { icon: Grid, label: "Overview", active: true, link: "/d/dashboard" },
+  { icon: Calendar, label: "Appointment", link: "/d/dashboard/appointments" },
+  { icon: Users, label: "My Patients", link: "/d/dashboard/patients" },
   { icon: Clock, label: "Schedule Timings", link: "#" },
-  { icon: CreditCard, label: "Payments", link: "#" },
+  { icon: CreditCard, label: "Payments", link: "/d/dashboard/payments" },
   { icon: Mail, label: "Message", link: "#" },
   { icon: Settings, label: "Settings", link: "#" },
 ];

@@ -4,42 +4,49 @@ import { Button } from "../ui/button";
 import { CustomButtom } from "../shared/Connect";
 // import { WagmiProvider, useAccount, useDisconnect } from "wagmi";
 
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, useReadContract } from "thirdweb/react";
 import { client } from "@/lib/thirdwebConfig";
-import { useActiveAccount, useWalletBalance } from "thirdweb/react";
-import { patientContract } from "@/utils/contract";
-import { useWriteContract } from "wagmi";
-import { ethers } from 'ethers';
+import { useActiveAccount } from "thirdweb/react";
+import { helperContract } from "@/utils/contract";
+import { useAccount, useWriteContract } from "wagmi";
+import { ethers } from "ethers";
 import useReadPatientContract from "@/hooks/useReadPatientData";
 import { usePRouter } from "@/lib/Provider2";
+import { getContract } from "thirdweb";
+import { helperAbi } from "@/abi/abi";
 
 function LoginScreen() {
-  // const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
   const account = useActiveAccount();
   const router = usePRouter();
   // const { disconnect } = useDisconnect();
   const [isNewUser, setIsNewUser] = useState(false);
 
-  const { writeContractAsync } = useWriteContract()
+  // const { writeContractAsync } = useWriteContract();
 
-  const PATIENT_ROLE = ethers.keccak256(ethers.toUtf8Bytes("PATIENT_ROLE"));
+  // const PATIENT_ROLE = ethers.keccak256("PATIENT_ROLE");
 
   // const byte32Role = ethers.encodeBytes32String(`${PATIENT_ROLE}`)
 
-  
   // const hasRole = data as unknown as boolean;
-  
-  useEffect(() => {
 
-    const { data: hasRole, isLoading, error } = useReadPatientContract({
-      contractAddress: patientContract.address as `0x${string}`,
-      abi: patientContract.abi,
-      functionName: 'hasRole',
-      args: [PATIENT_ROLE, account?.address]
-    });
-    
+  const {
+    data: hasRole,
+    isLoading,
+    error,
+  } = useReadPatientContract({
+    contractAddress: helperContract.address as `0x${string}`,
+    abi: helperAbi,
+    functionName: "checkUserRole",
+    args: [address],
+  });
+  useEffect(() => {
     // get the address of the account
-    if(!hasRole) setIsNewUser(true);
+    console.log(hasRole, "HASROLE");
+    if (!hasRole) {
+      setIsNewUser(true);
+      return;
+    }
 
     // check if they have a role
 
@@ -47,8 +54,10 @@ function LoginScreen() {
 
     // if they don't -> show register buttons to register then route
     //to respective dash
-    console.log("ACCOUNT",account)
-  }, [account])
+    console.log("ACCOUNTT", account);
+  }, [account, hasRole]);
+
+  console.log(hasRole, "HASROLE", error, address);
 
   const btn = [
     {
@@ -75,15 +84,8 @@ function LoginScreen() {
           showThirdwebBranding: false,
         }}
       />
-      {/* {!isConnected && <CustomButtom />}
-      {isConnected && (
-        <Button
-          onClick={() => disconnect()}
-          className="bg-[#8F3E97] w-full h-12 text-white mt-2"
-        >
-          Disconnect wallet
-        </Button>
-      )} */}
+      {/* <CustomButtom /> */}
+
       {/* <ConnectButton /> */}
       {account !== undefined && (
         <>

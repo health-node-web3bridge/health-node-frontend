@@ -1,22 +1,26 @@
-import { useState, useEffect } from 'react';
-import { useReadContract } from 'wagmi';
+import { useState, useEffect } from "react";
+import { useReadContract } from "wagmi";
 
-const useReadPatientContract = ({ 
-    contractAddress, 
-    abi, 
-    functionName, 
-    args = [] }:{ 
-        contractAddress: any, 
-        abi: any; 
-        functionName: string, 
-        args: any[]}
-) => {
-
+const useReadPatientContract = ({
+  contractAddress,
+  abi,
+  functionName,
+  args = [],
+}: {
+  contractAddress: any;
+  abi: any;
+  functionName: string;
+  args: any[];
+}) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const { data: contractData, isError, isLoading: loading } = useReadContract({
+  const {
+    data: contractData,
+    isError,
+    isLoading: loading,
+  } = useReadContract({
     address: contractAddress,
     abi,
     functionName,
@@ -26,10 +30,16 @@ const useReadPatientContract = ({
   useEffect(() => {
     setIsLoading(loading);
     if (isError) {
-      setError('Failed to read contract data');
+      setError("Failed to read contract data");
     } else {
       setData(contractData as any);
     }
+
+    return () => {
+      setData(null);
+      setIsLoading(false);
+      setError("");
+    };
   }, [contractData, loading, isError]);
 
   return { data, isLoading, error };

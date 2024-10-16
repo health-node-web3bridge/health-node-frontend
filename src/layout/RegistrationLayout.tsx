@@ -12,7 +12,7 @@ function RegistrationLayout({
 }) {
   return (
     <div className="bg-[#E9F2FE] w-screen h-screen px-32 py-16">
-      <div className="bg-white p-5 rounded-md px-32 py-14 h-full xl:w-8/12 mx-auto">
+      <div className="bg-white p-5 rounded-md !px-32 !py-14 h-full  mx-auto">
         <div className="flex items-center justify-between">
           <Button
             className="bg-[#fff] hover:bg-white rounded-md"
@@ -25,7 +25,7 @@ function RegistrationLayout({
               alt={"back"}
             />
           </Button>
-          <h1 className="text-4xl text-center font-geistMono">{title}</h1>
+          <h1 className="!text-4xl text-center font-geistMono">{title}</h1>
           <div />
         </div>
         {children}
